@@ -19,10 +19,10 @@ This shows results about the following function
 $$f(x,y)=(x-3.14)^2+(y-2.72)^2+sin(3x+1.41)+sin(4y-1.73)$$
 
 <p>
-<img src="./iter0.png" width=100%/>
-<img src="./iter5.png" width=100%/>
-<img src="./iter10.png" width=100%/>
-<img src="./iter15.png" width=100%/>
-<img src="./iter20.png" width=100%/>
-<img src="./iter25.png" width=100%/>
+<img src="./iter0.png" width=49% />
+<img src="./iter5.png" width=49%/>
+<img src="./iter10.png" width=49%/>
+<img src="./iter15.png" width=49%/>
+<img src="./iter20.png" width=49%/>
+<img src="./iter25.png" width=49%/>
 </p>
