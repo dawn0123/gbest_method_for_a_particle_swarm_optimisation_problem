@@ -17,10 +17,26 @@ def print_vectors(V, heading, name='x'):
     print("")
 
 
+def plot_contour(X, gbest, title=""):
+    x, y = np.array(np.meshgrid(np.linspace(X1_MIN, X1_MAX, 100),
+                    np.linspace(X2_MIN, X2_MAX, 100)))
+    z = f(x, y)
+    plt.figure(figsize=(6, 6))
+    plt.title(title)
+    plt.xlabel("x1")
+    plt.ylabel("x2")
+    plt.xlim(X1_MIN, X1_MAX)
+    plt.ylim(X2_MIN, X2_MAX)
+    plt.contour(x, y, z, 10)
+    plt.scatter(X[..., 0], X[..., 1], cmap='bo')
+    plt.plot(gbest[0], gbest[1], 'r*')
+    plt.show()
+
+
 def solve(X, V, w, c1, c2, r1, r2, nIter):
     print_vectors(X, "Initial positions: ", 'x')
     print_vectors(V, "Initial velocities: ", 'v')
-    # plot_contour(X, np.array([X1_MIN-1, X2_MIN-1]), "Iteration t = 0")
+    plot_contour(X, np.array([X1_MIN-1, X2_MIN-1]), "Iteration t = 0")
     size = len(X)
     pbest = X
     f_pbest = f(X[..., 0], X[..., 1])
@@ -48,8 +64,8 @@ def solve(X, V, w, c1, c2, r1, r2, nIter):
             gbest = X[np.argmin(f_pcurrent)]
             f_gbest = f_gcurrent
             print("The swarm updates its collective best performance.")
-        # if it % 5 == 0:
-        #     plot_contour(X, gbest, f"Iteration t = {it}")
+        if it % 5 == 0:
+            plot_contour(X, gbest, f"Iteration t = {it}")
     return gbest, f_gbest
 
 
